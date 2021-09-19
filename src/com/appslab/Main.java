@@ -7,18 +7,26 @@ public class Main {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
 
-        System.out.print("Height Of Step: ");
-        double heightOfStep = console.nextDouble();
-        System.out.print("Length Of Step: ");
-        double lengthOfStep = console.nextDouble();
-        System.out.print("Tower Of Step: ");
-        double towerHeight = console.nextDouble();
+        System.out.print("Write First Number: ");
+        int number1 = console.nextInt();
+        System.out.print("Write Second Number: ");
+        int number2 = console.nextInt();
+        System.out.print("Write Third Number: ");
+        int number3 = console.nextInt();
 
-        System.out.print("Total distance is: "+TotalDistance(heightOfStep, lengthOfStep, towerHeight));
-
+        System.out.print("Total Of Equal Numbers: "+TotalEqual(number1, number2, number3));
     }
-    public static double TotalDistance(double heightOfStep, double lengthOfStep, double towerHeight)
-    {
-        return (towerHeight/heightOfStep)*(heightOfStep+lengthOfStep);
+    public static int TotalEqual(int number1, int number2, int number3) {
+      if(number1 == number2 && number1 == number3)
+      {
+          return 3;
+      }
+      if(number1 == number2 || number1 == number3 || number2 == number3)
+      {
+          return 2;
+      }
+      else{
+          return 0;
+      }
     }
 }
