@@ -1,36 +1,26 @@
 package com.appslab;
 
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        int[] numbers = {12,90,75};
-        int even = 0;
-        int odd = 0;
+        Scanner console = new Scanner(System.in);
 
-        for (int i=0;i<numbers.length; i++)
-        {
-            if (numbers[i] %2 == 0)
-            {
-                even += numbers[i];
-            }else
-            {
-                odd += numbers[i];
-            }
-        }
-        System.out.print(OddOrEven(odd, even));
+        System.out.print("Write 1. Word To Compare: ");
+        String word1 = console.nextLine();
+
+        System.out.print("Write 2. Word To Compare: ");
+        String word2 = console.nextLine();
+
+        System.out.print("Result is: "+EndsWithString(word1, word2));
+
 
     }
-    public static String OddOrEven(int odd, int even) {
-        if (odd > even) {
-            int difference = odd - even;
-            return "ODD > EVEN " + difference;
-
-        }
-        else{
-            int difference = even-odd;
-         return "ODD < EVEN "+difference;
-        }
+    public static boolean EndsWithString(String word1, String word2)
+    {
+       return word2.endsWith(word1);
     }
 }
