@@ -1,31 +1,28 @@
 package com.appslab;
 
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Scanner console = new Scanner(System.in);
+        int[] numbers = {10,4,1,4,-10,-50,32,21};
+        int max = 0;
+        int min = 0;
 
-        System.out.print("Write Word To Test, If It’s Palindrome: ");
-        String inputFromUser = console.nextLine();
-
-
-        System.out.print("Result's: " + IsWordPalindrome(inputFromUser));
-    }
-    public static boolean IsWordPalindrome(String inputFromUser)
-    {
-        StringBuilder sb = new StringBuilder(inputFromUser);
-        sb.reverse();
-        String rev=sb.toString();
-        if(inputFromUser.equals(rev))
+        for (int i=0;i<numbers.length; i++)
         {
-            return true;
-        }else
-        {
-            return  false;
+            if (max < numbers[i]) {
+                max = numbers[i];
+            }
         }
+        for (int i=0;i<numbers.length; i++ )
+        {
+            if (min > numbers[i])
+            {
+                min = numbers[i];
+            }
+        }
+        int differencesBetweenMaxMin =  Math.abs(min) + max;
+        System.out.print("MAX: "+max +" MIN: " +min+ " DifferencesBetweenMaxMin: "+differencesBetweenMaxMin);
     }
-
 }
