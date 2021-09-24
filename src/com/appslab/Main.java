@@ -8,28 +8,23 @@ public class Main {
 
         Scanner console = new Scanner(System.in);
 
-        System.out.print("PLAYER 1: Rock, paper or scissors?: ");
-        String player1 = console.nextLine();
-
-        System.out.print("PLAYER 2: Rock, paper or scissors?: ");
-        String player2 = console.nextLine();
+        System.out.print("Write Word To Test, If It’s Palindrome: ");
+        String inputFromUser = console.nextLine();
 
 
-        System.out.print("Result's: " + RockPaperScissors(player1, player2));
+        System.out.print("Result's: " + IsWordPalindrome(inputFromUser));
     }
-    public static String RockPaperScissors(String player1, String player2)
+    public static boolean IsWordPalindrome(String inputFromUser)
     {
-        if(player1.equals("rock") && player2.equals("rock") || player1.equals("paper") && player2.equals("paper") ||player1.equals("scissors") && player2.equals("scissors") )
+        StringBuilder sb = new StringBuilder(inputFromUser);
+        sb.reverse();
+        String rev=sb.toString();
+        if(inputFromUser.equals(rev))
         {
-            return "TIE";
-        }
-        if(player1.equals("rock") && player2.equals("scissors") || player1.equals("scissors") && player2.equals("paper") || player1.equals("paper") && player2.equals("rock") )
+            return true;
+        }else
         {
-            return "PLAYER 1 WINS";
-        }
-        else
-        {
-            return "PLAYER 2 WINS";
+            return  false;
         }
     }
 
