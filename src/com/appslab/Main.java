@@ -5,24 +5,32 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[] numbers = {10,4,1,4,-10,-50,32,21};
-        int max = 0;
-        int min = 0;
+        int[] numbers = {12,90,75};
+        int even = 0;
+        int odd = 0;
 
         for (int i=0;i<numbers.length; i++)
         {
-            if (max < numbers[i]) {
-                max = numbers[i];
-            }
-        }
-        for (int i=0;i<numbers.length; i++ )
-        {
-            if (min > numbers[i])
+            if (numbers[i] %2 == 0)
             {
-                min = numbers[i];
+                even += numbers[i];
+            }else
+            {
+                odd += numbers[i];
             }
         }
-        int differencesBetweenMaxMin =  Math.abs(min) + max;
-        System.out.print("MAX: "+max +" MIN: " +min+ " DifferencesBetweenMaxMin: "+differencesBetweenMaxMin);
+        System.out.print(OddOrEven(odd, even));
+
+    }
+    public static String OddOrEven(int odd, int even) {
+        if (odd > even) {
+            int difference = odd - even;
+            return "ODD > EVEN " + difference;
+
+        }
+        else{
+            int difference = even-odd;
+         return "ODD < EVEN "+difference;
+        }
     }
 }
